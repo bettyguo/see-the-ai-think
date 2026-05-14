@@ -29,15 +29,14 @@ class FeatureLabel:
     source: str  # short citation string, displayed verbatim in the UI
 
 
-# Inline fallback. Keep short — the real snapshot lives in data/feature_labels.json.
+# Inline fallback. PLACEHOLDER — replaced at warm time by a real Neuronpedia
+# snapshot pulled into data/feature_labels.json. Source string is honest about
+# its origin per docs/HONESTY.md; we never ship "real-looking" labels we made up.
 _BUNDLED: dict[str, FeatureLabel] = {
-    # gpt2-small/L6/F12: a well-known "first token of word after a period" feature
-    # (we mark it auto-label because the canonical attribution is from
-    # Neuronpedia's auto-interp, not a peer-reviewed source).
     "gpt2-small:6:12": FeatureLabel(
-        text="activates on the first token of a word that follows a sentence-ending period",
+        text="placeholder label: in real use this would be a Neuronpedia auto-interp string for L6/F12",
         tier="AUTO-LABEL",
-        source="Neuronpedia auto-interp (gpt2-small-res-jb)",
+        source="placeholder — replaced at warm time by Neuronpedia snapshot",
     ),
 }
 
@@ -60,6 +59,9 @@ def load_labels() -> dict[str, FeatureLabel]:
 
     out: dict[str, FeatureLabel] = dict(_BUNDLED)
     for key, entry in raw.items():
+        # Skip non-label keys like `_doc` (informational header at the top of the file).
+        if not isinstance(entry, dict):
+            continue
         tier = entry.get("tier")
         if tier not in ("MEASURED", "SOURCED", "AUTO-LABEL"):
             continue

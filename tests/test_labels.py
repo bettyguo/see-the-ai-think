@@ -22,7 +22,10 @@ def test_label_lookup_returns_hit_for_known():
     labels = load_labels()
     hit = lookup(labels, "gpt2-small", 6, 12)
     assert isinstance(hit, FeatureLabel)
-    assert "period" in hit.text.lower()
+    # Placeholder label text — the bundled label is explicitly a placeholder,
+    # and the source string must say so to comply with docs/HONESTY.md.
+    assert hit.tier == "AUTO-LABEL"
+    assert "placeholder" in hit.source.lower()
 
 
 def test_triggers_sorted_by_activation():

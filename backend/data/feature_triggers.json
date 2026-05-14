@@ -1,15 +1,7 @@
 {
+  "_doc": "Placeholder triggering examples shipped so the UI's example panel is demonstrable end-to-end. These are illustrative — the corpus index built at warm time replaces this file with real top-activating snippets pulled from a permissively-licensed corpus. See docs/HONESTY.md.",
   "gpt2-small:6:12": [
-    {"text": "The day was bright. Sunlight streamed through the window.", "activating_index": 5, "activation": 3.7},
-    {"text": "She paused. Then she began to write.", "activating_index": 3, "activation": 3.4},
-    {"text": "It rained heavily. Everyone ran for cover.", "activating_index": 4, "activation": 3.1}
-  ],
-  "gpt2-small:8:1024": [
-    {"text": "Marie Curie won the Nobel Prize twice.", "activating_index": 0, "activation": 4.2},
-    {"text": "The Eiffel Tower stands in Paris.", "activating_index": 1, "activation": 3.9}
-  ],
-  "gpt2-small:4:512": [
-    {"text": "The recipe calls for 2 cups of flour.", "activating_index": 4, "activation": 2.8},
-    {"text": "It weighed 47 kilograms after the harvest.", "activating_index": 3, "activation": 2.5}
+    {"text": "[placeholder example] The day was bright. Sunlight streamed through the window.", "activating_index": 5, "activation": 3.7},
+    {"text": "[placeholder example] She paused. Then she began to write.", "activating_index": 3, "activation": 3.4}
   ]
 }

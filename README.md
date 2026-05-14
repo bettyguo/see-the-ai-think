@@ -22,7 +22,7 @@
 
 If the Space is asleep, the static demo capture animates immediately so you see the visualization while the model wakes up.
 
-## Quickstart (60 seconds)
+## Quickstart
 
 ```bash
 git clone https://github.com/bettyguo/see-the-ai-think.git
@@ -31,9 +31,11 @@ make run            # Linux / macOS
 # Windows: .\run.ps1
 ```
 
-`make run` creates a `.venv`, installs deps, downloads **GPT-2 Small** (~500 MB) and **Joseph Bloom's residual-stream SAEs** (~1 GB on first run only), starts the server, and opens your browser at **http://127.0.0.1:8000**.
+`make run` creates a `.venv`, installs deps (~30 s), downloads **GPT-2 Small** (~500 MB) and **Joseph Bloom's residual-stream SAEs** (~1 GB) on first run, starts the server, and opens your browser at **http://127.0.0.1:8000**. Cold start: **~3 min** on a decent connection. Warm restart: **<5 s**.
 
-**Slow network?** Use `make run-fast` to skip SAE download. The UI falls back to raw neuron activations + logit lens + attention — still beautiful, just without the labeled features.
+**While the model warms,** the UI animates a small bundled demo capture so you see the visualization within ~50 ms regardless.
+
+**Slow network?** `make run-fast` skips the SAE download. The UI falls back to raw neuron activations + logit lens + attention — still beautiful, just without the labeled features.
 
 ## What you're seeing
 

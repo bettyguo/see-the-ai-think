@@ -1,17 +1,18 @@
 {
+  "_doc": "Placeholder labels shipped so the UI's label/badge pipeline is demonstrable end-to-end. These are NOT real Neuronpedia auto-interps — `python -m backend.warm` will replace this file with a real snapshot pulled from Neuronpedia (or the GitHub release) at first-run time. Honesty rules: docs/HONESTY.md.",
   "gpt2-small:6:12": {
-    "text": "activates on the first token of a word that follows a sentence-ending period",
+    "text": "placeholder label: in real use this would be a Neuronpedia auto-interp string for L6/F12",
     "tier": "AUTO-LABEL",
-    "source": "Neuronpedia auto-interp (gpt2-small-res-jb)"
+    "source": "placeholder — replaced at warm time by Neuronpedia snapshot; see docs/HONESTY.md"
   },
   "gpt2-small:8:1024": {
-    "text": "activates on tokens that begin proper nouns (people, places)",
+    "text": "placeholder label: in real use this would be a Neuronpedia auto-interp string for L8/F1024",
     "tier": "AUTO-LABEL",
-    "source": "Neuronpedia auto-interp (gpt2-small-res-jb)"
+    "source": "placeholder — replaced at warm time by Neuronpedia snapshot; see docs/HONESTY.md"
   },
   "gpt2-small:4:512": {
-    "text": "activates on quantitative tokens (numbers, units of measure)",
+    "text": "placeholder label: in real use this would be a Neuronpedia auto-interp string for L4/F512",
     "tier": "AUTO-LABEL",
-    "source": "Neuronpedia auto-interp (gpt2-small-res-jb)"
+    "source": "placeholder — replaced at warm time by Neuronpedia snapshot; see docs/HONESTY.md"
   }
 }

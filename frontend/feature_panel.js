@@ -2,22 +2,15 @@
 // and an honesty note. Fetches /api/feature/{model}/{layer}/{feature}; falls
 // back to inline bundled labels if the API is unavailable.
 
+// Frontend fallback bundle, used only when /api/feature/... is unreachable
+// (e.g. fully static hosting). These are PLACEHOLDER labels — see docs/HONESTY.md.
+// A warm-time Neuronpedia snapshot replaces them with real auto-interps on
+// servers that have run `python -m backend.warm`.
 const BUNDLED = {
   "gpt2-small:6:12": {
-    label: { text: "activates on the first token of a word that follows a sentence-ending period",
-             tier: "AUTO-LABEL", source: "Neuronpedia auto-interp (gpt2-small-res-jb)" },
-    top_corpus_examples: [
-      { text: "The day was bright. Sunlight streamed through the window.", activating_index: 5, activation: 3.7 },
-      { text: "She paused. Then she began to write.", activating_index: 3, activation: 3.4 },
-    ],
-  },
-  "gpt2-small:8:1024": {
-    label: { text: "activates on tokens that begin proper nouns (people, places)",
-             tier: "AUTO-LABEL", source: "Neuronpedia auto-interp (gpt2-small-res-jb)" },
-    top_corpus_examples: [
-      { text: "Marie Curie won the Nobel Prize twice.", activating_index: 0, activation: 4.2 },
-      { text: "The Eiffel Tower stands in Paris.", activating_index: 1, activation: 3.9 },
-    ],
+    label: { text: "placeholder label — real auto-interps are loaded server-side from Neuronpedia",
+             tier: "AUTO-LABEL", source: "placeholder — see docs/HONESTY.md" },
+    top_corpus_examples: [],
   },
 };
 

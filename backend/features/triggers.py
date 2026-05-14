@@ -24,11 +24,12 @@ class TriggerExample:
     activation: float
 
 
+# Placeholder fallback. Real triggering examples are built at warm time from a
+# permissively-licensed corpus and overwrite this in data/feature_triggers.json.
 _BUNDLED: dict[str, list[TriggerExample]] = {
     "gpt2-small:6:12": [
-        TriggerExample("The day was bright. Sunlight streamed through the window.", 5, 3.7),
-        TriggerExample("She paused. Then she began to write.", 3, 3.4),
-        TriggerExample("It rained heavily. Everyone ran for cover.", 4, 3.1),
+        TriggerExample("[placeholder example] The day was bright. Sunlight streamed through the window.", 5, 3.7),
+        TriggerExample("[placeholder example] She paused. Then she began to write.", 3, 3.4),
     ],
 }
 

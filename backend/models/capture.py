@@ -287,11 +287,16 @@ class CaptureEngine:
         out: list[TokenCapture] = []
         T = int(token_ids.shape[0])
 
-        # Pre-compute SAE encodings per layer for all positions in one shot.
+        # Pre-compute SAE encodings per layer for all positions.
+        # Bloom's gpt2-small-res-jb SAEs are trained on `hook_resid_pre`, i.e.
+        # the residual stream ENTERING each block. `_residuals[layer_idx]` is
+        # exactly that (our pre-hook captures the block's input). Earlier
+        # versions used the post-block residual and got systematically wrong
+        # activations.
         per_layer_features: list[Any] = []
         if self.sae_loaded:
             for layer_idx in range(self.spec.n_layers):
-                resid = cap["residuals"][layer_idx + 1]  # use post-block residual
+                resid = cap["residuals"][layer_idx]
                 if resid is None:
                     per_layer_features.append(None)
                     continue
@@ -300,7 +305,7 @@ class CaptureEngine:
                 )
         else:
             for layer_idx in range(self.spec.n_layers):
-                resid = cap["residuals"][layer_idx + 1]
+                resid = cap["residuals"][layer_idx]
                 per_layer_features.append(
                     self._raw_neuron_topk(resid, k=top_k_features) if resid is not None else None
                 )
@@ -344,10 +349,12 @@ class CaptureEngine:
         from backend.features.logit_lens import logit_lens_topk
         from backend.features.sae import encode_topk
 
+        # Same residual-tap rule as in _token_captures: hook_resid_pre (input
+        # to each block) — see comment there.
         per_layer_features: list[Any] = []
         if self.sae_loaded:
             for layer_idx in range(self.spec.n_layers):
-                resid = cap["residuals"][layer_idx + 1]
+                resid = cap["residuals"][layer_idx]
                 if resid is None:
                     per_layer_features.append(None)
                     continue
@@ -356,7 +363,7 @@ class CaptureEngine:
                 )
         else:
             for layer_idx in range(self.spec.n_layers):
-                resid = cap["residuals"][layer_idx + 1]
+                resid = cap["residuals"][layer_idx]
                 per_layer_features.append(
                     self._raw_neuron_topk(resid, k=top_k_features) if resid is not None else None
                 )
