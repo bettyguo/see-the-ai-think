@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fox",
+    "title": "The famous one",
+    "prompt": "The quick brown fox jumps over the lazy",
+    "why": "GPT-2's most-completed sentence. Watch the final-layer logit lens lock onto ' dog'."
+  },
+  {
+    "id": "capital",
+    "title": "Factual recall",
+    "prompt": "The capital of France is",
+    "why": "A short factual prompt — see which mid-layer features fire on country/capital tokens."
+  },
+  {
+    "id": "story",
+    "title": "Story continuation",
+    "prompt": "Once upon a time, in a small village by the sea,",
+    "why": "A narrative opener — the heatmap reveals story-style features lighting up across the layers."
+  },
+  {
+    "id": "code",
+    "title": "Code completion",
+    "prompt": "def fibonacci(n):\n    if n <",
+    "why": "Code-style features fire differently from prose. Compare the heatmap to a prose prompt."
+  },
+  {
+    "id": "list",
+    "title": "Enumeration",
+    "prompt": "The three primary colors are red,",
+    "why": "Lists trigger characteristic features; watch the logit lens decide on ' blue' or ' yellow'."
+  }
+]

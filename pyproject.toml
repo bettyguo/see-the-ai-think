@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "see-the-ai-think"
+version = "0.1.0"
+description = "Watch an LLM think. Interactive, runs on your laptop, no GPU required."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Betty Guo (Dongxin Guo)", email = "noreply@example.com" }
+]
+keywords = [
+  "interpretability",
+  "mechanistic-interpretability",
+  "sparse-autoencoder",
+  "llm",
+  "visualization",
+  "transformer",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "fastapi>=0.110,<1.0",
+  "uvicorn[standard]>=0.27,<1.0",
+  "sse-starlette>=2.0,<3.0",
+  "pydantic>=2.6,<3.0",
+  "numpy>=1.26,<3.0",
+  "torch>=2.2,<3.0",
+  "transformers>=4.40,<5.0",
+  "safetensors>=0.4,<1.0",
+  "huggingface-hub>=0.23,<1.0",
+  "tqdm>=4.66,<5.0",
+]
+
+[project.optional-dependencies]
+sae = [
+  "sae-lens>=4.0,<6.0",
+]
+dev = [
+  "pytest>=8.0,<9.0",
+  "pytest-asyncio>=0.23,<1.0",
+  "httpx>=0.27,<1.0",
+  "ruff>=0.4,<1.0",
+]
+
+[project.scripts]
+see-the-ai-think = "backend.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/bettyguo/see-the-ai-think"
+Issues = "https://github.com/bettyguo/see-the-ai-think/issues"
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+exclude = ["tests*", "frontend*", "docs*", "PLANNING*", "assets*", "examples*"]
+
+[tool.setuptools.package-data]
+backend = ["data/*.json"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "integration: requires downloaded model weights (slow, network)",
+]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+ignore = ["E501"]

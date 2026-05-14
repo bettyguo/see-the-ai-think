@@ -1,0 +1,17 @@
+{
+  "gpt2-small:6:12": {
+    "text": "activates on the first token of a word that follows a sentence-ending period",
+    "tier": "AUTO-LABEL",
+    "source": "Neuronpedia auto-interp (gpt2-small-res-jb)"
+  },
+  "gpt2-small:8:1024": {
+    "text": "activates on tokens that begin proper nouns (people, places)",
+    "tier": "AUTO-LABEL",
+    "source": "Neuronpedia auto-interp (gpt2-small-res-jb)"
+  },
+  "gpt2-small:4:512": {
+    "text": "activates on quantitative tokens (numbers, units of measure)",
+    "tier": "AUTO-LABEL",
+    "source": "Neuronpedia auto-interp (gpt2-small-res-jb)"
+  }
+}

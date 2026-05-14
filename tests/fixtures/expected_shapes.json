@@ -1,0 +1,9 @@
+{
+  "model": "gpt2-small",
+  "n_layers": 12,
+  "d_model": 768,
+  "n_heads": 12,
+  "tokens_in_prompt": 8,
+  "expected_top1_final": " dog",
+  "note": "Tokenization 'The quick brown fox jumps over the lazy' under the GPT-2 BPE tokenizer yields 8 tokens. The classic logit-lens demonstration completes ' dog' as the top-1 final prediction."
+}
