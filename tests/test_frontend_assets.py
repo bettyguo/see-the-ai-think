@@ -26,6 +26,8 @@ STATIC_FILES = [
     "/static/heatmap.js",
     "/static/logit_lens.js",
     "/static/feature_panel.js",
+    "/static/surprise.js",
+    "/static/attention.js",
     "/static/demo_capture.json",
     "/static/assets/favicon.svg",
     "/static/index.html",

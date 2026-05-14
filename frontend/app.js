@@ -7,6 +7,8 @@
 import { Heatmap } from "/static/heatmap.js";
 import { LogitLens } from "/static/logit_lens.js";
 import { FeaturePanel } from "/static/feature_panel.js";
+import { SurpriseRibbon } from "/static/surprise.js";
+import { AttentionArcs } from "/static/attention.js";
 
 const els = {
   status: document.getElementById("status"),
@@ -24,6 +26,8 @@ const els = {
   layerSlider: document.getElementById("layer-slider"),
   layerReadout: document.getElementById("layer-readout"),
   logitLens: document.getElementById("logit-lens"),
+  surprise: document.getElementById("surprise-ribbon"),
+  attention: document.getElementById("attention-arcs"),
   featurePanel: document.getElementById("feature-panel"),
   layout: document.querySelector(".layout"),
 };
@@ -37,6 +41,8 @@ const state = {
 
 const heatmap = new Heatmap(els.heatmapCanvas, els.legend, { featureLabels: new Map() });
 const logitLens = new LogitLens(els.logitLens, els.layerSlider, els.layerReadout);
+const surprise = new SurpriseRibbon(els.surprise);
+const attention = new AttentionArcs(els.attention);
 const panel = new FeaturePanel(els.featurePanel, els.layout, {
   model: state.model,
   onClose: () => heatmap.setActiveFeature(null, null),
@@ -110,9 +116,10 @@ function renderTokenRow() {
     const chip = document.createElement("span");
     chip.className = "token-chip";
     if (i >= state.promptLen) chip.classList.add("generated");
-    if (i === state.tokens.length - 1) chip.classList.add("latest");
+    if (i === state.tokens.length - 1) chip.classList.add("latest", "flash");
     chip.textContent = tok.text.replace(/^ /, "·").replace(/\n/g, "⏎") || "·";
-    chip.title = `position ${tok.position} · token id ${tok.token_id}`;
+    chip.title = `position ${tok.position} · token id ${tok.token_id} · click for attention`;
+    chip.addEventListener("click", () => attention.selectToken(i));
     els.tokenRow.appendChild(chip);
   });
   els.tokenRow.scrollLeft = els.tokenRow.scrollWidth;
@@ -126,6 +133,8 @@ function resetSession() {
   state.promptLen = 0;
   heatmap.reset();
   logitLens.reset();
+  surprise.reset();
+  attention.reset();
   panel.hide();
   els.tokenRow.innerHTML = "";
 }
@@ -134,6 +143,8 @@ function ingestToken(tok) {
   state.tokens.push(tok);
   heatmap.pushToken(tok);
   logitLens.pushToken(tok);
+  surprise.pushToken(tok);
+  attention.pushToken(tok);
   renderTokenRow();
 }
 

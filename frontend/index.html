@@ -65,6 +65,20 @@
           <canvas id="heatmap" width="800" height="420"></canvas>
           <ul id="feature-legend" class="feature-legend" aria-label="features"></ul>
         </div>
+        <div class="surprise-row" aria-label="entropy per token">
+          <span class="surprise-label">surprise</span>
+          <div id="surprise-ribbon" class="surprise-ribbon"></div>
+        </div>
+      </div>
+
+      <div class="viz-card">
+        <header class="card-head">
+          <h2>Attention</h2>
+          <p class="sub">
+            Click any token chip to see what it most attended to, per layer.
+          </p>
+        </header>
+        <svg id="attention-arcs" viewBox="0 0 800 180" preserveAspectRatio="none" aria-label="attention arcs"></svg>
       </div>
 
       <div class="viz-card">
