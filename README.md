@@ -10,12 +10,6 @@
 
 ---
 
-## Live demo
-
-▶ **[huggingface.co/spaces/bettyguo/see-the-ai-think](https://huggingface.co/spaces/bettyguo/see-the-ai-think)** (deploy recipe in [docs/HOSTED_DEMO.md](docs/HOSTED_DEMO.md))
-
-If the Space is asleep, the static demo capture animates immediately so you see the visualization while the model wakes up.
-
 ## Quickstart
 
 ```bash
