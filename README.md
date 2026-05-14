@@ -1,9 +1,3 @@
-<p align="center">
-  <img src="assets/demo.gif" alt="see-the-ai-think — watch an LLM think" width="820" />
-  <br>
-  <em>(If the GIF isn't here yet, follow <a href="assets/RECORD_DEMO.md">assets/RECORD_DEMO.md</a> to record one.)</em>
-</p>
-
 # see-the-ai-think
 
 > **Watch an LLM think.** Interactive, runs on your laptop, **no GPU required** — load a model, type a prompt, see the features light up.
