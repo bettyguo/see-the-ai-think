@@ -6,7 +6,6 @@
 [![CI](https://github.com/bettyguo/see-the-ai-think/actions/workflows/ci.yml/badge.svg)](https://github.com/bettyguo/see-the-ai-think/actions)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](pyproject.toml)
 [![no GPU required](https://img.shields.io/badge/no%20GPU-required-06d6a0.svg)](#what-youre-seeing)
-[![live demo](https://img.shields.io/badge/live-demo-3a86ff.svg)](https://huggingface.co/spaces/bettyguo/see-the-ai-think)
 
 ---
 
@@ -68,24 +67,3 @@ Architecture deep-dive: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 - **Logit lens.** nostalgebraist, 2020 — "interpreting GPT: the logit lens" (LessWrong).
 - Built on [TransformerLens](https://github.com/TransformerLensOrg/TransformerLens), [SAELens](https://github.com/decoderesearch/SAELens), and [Neuronpedia](https://neuronpedia.org) auto-interpretation snapshots.
 
-## Star history
-
-[![Star History](https://api.star-history.com/svg?repos=bettyguo/see-the-ai-think&type=Date)](https://star-history.com/#bettyguo/see-the-ai-think)
-
-## Citing
-
-```bibtex
-@software{guo2026seetheaithink,
-  author       = {Guo, Dongxin},
-  title        = {{see-the-ai-think}: Watch an LLM think.},
-  year         = {2026},
-  publisher    = {GitHub},
-  url          = {https://github.com/bettyguo/see-the-ai-think}
-}
-```
-
-## License & attribution
-
-MIT © 2026 **Dongxin Guo (Betty Guo)** · ORCID [0009-0000-2388-1072](https://orcid.org/0009-0000-2388-1072)
-
-Final-year PhD candidate in Computer Science, University of Hong Kong. Advised by Prof. Siu-Ming Yiu.
